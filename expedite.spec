@@ -33,7 +33,7 @@ rm -rf $RPM_BUILD_ROOT
 %install
 %makeinstall_std
 
-mkdir -p $RPM_BUILD_ROOT%{_menudir}/%{name}
+mkdir -p $RPM_BUILD_ROOT%{_menudir}
 
 cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
 ?package(%{name}):\
@@ -56,9 +56,9 @@ desktop-file-install --vendor="" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/%name.desktop
 
 mkdir -p %buildroot{%_liconsdir,%_iconsdir,%_miconsdir}
-install -m 644 data/images/e.png %buildroot%_liconsdir/%name.png
-convert -resize 32x32 data/images/e.png %buildroot%_iconsdir/%name.png
-convert -resize 16x16 data/images/e.png %buildroot%_miconsdir/%name.png
+install -m 644 data/e.png %buildroot%_liconsdir/%name.png
+convert -resize 32x32 data/e.png %buildroot%_iconsdir/%name.png
+convert -resize 16x16 data/e.png %buildroot%_miconsdir/%name.png
 
 mkdir -p %buildroot%{_datadir}/pixmaps
 cp data/e.png %buildroot%{_datadir}/pixmaps/%name.png
