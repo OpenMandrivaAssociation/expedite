@@ -14,6 +14,8 @@ URL:		http://www.enlightenment.org/
 BuildRoot:      %{_tmppath}/%{name}-buildroot
 BuildRequires: evas-devel >= 0.9.9.038
 Requires: evas >= 0.9.9.038
+Buildrequires:	%{mklibname xorg-x11}-devel
+buildrequires:  mesagl-devel
 BuildRequires:  ImageMagick
 BuildRequires:  desktop-file-utils
 
