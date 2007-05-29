@@ -14,6 +14,8 @@ URL:		http://www.enlightenment.org/
 BuildRoot:      %{_tmppath}/%{name}-buildroot
 BuildRequires: evas-devel >= 0.9.9.038
 Requires: evas >= 0.9.9.038
+BuildRequires:  ImageMagick
+BuildRequires:  desktop-file-utils
 
 %description
 Expedite Evas benchmark/test suite
@@ -31,13 +33,15 @@ rm -rf $RPM_BUILD_ROOT
 %install
 %makeinstall_std
 
+mkdir -p $RPM_BUILD_ROOT%{_menudir}/%{name}
+
 cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
 ?package(%{name}):\
         needs="X11" \
         section="Multimedia/Graphics" \
         title="%name" \
         longtitle="%name Evas benchmark/test suite" \
-        command="%{_bindir}/%name" \
+        command="%{_bindir}/%name -e x11" \
         icon="expedite.png" \
         startup_notify="true" \
         xdg="true"
@@ -57,7 +61,7 @@ convert -resize 32x32 data/images/e.png %buildroot%_iconsdir/%name.png
 convert -resize 16x16 data/images/e.png %buildroot%_miconsdir/%name.png
 
 mkdir -p %buildroot%{_datadir}/pixmaps
-cp data//e.png %buildroot%{_datadir}/pixmaps/%name.png
+cp data/e.png %buildroot%{_datadir}/pixmaps/%name.png
 
 
 %clean
@@ -72,8 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %doc  AUTHORS COPYING* README
-%attr(755,root,root) %{prefix}/bin/*
-%attr(755,root,root) %{prefix}/share/expedite
+%{_bindir}/%name
 %{_datadir}/%name
 %{_menudir}/*
 %_liconsdir/*.png
