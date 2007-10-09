@@ -2,7 +2,7 @@
 %define version 0.6.0
 %define release %mkrel 3
 
-Summary:	Expedite Evas benchmark/test suite.
+Summary:	Expedite Evas benchmark/test suite
 Name:		%name
 Version:	%version
 Release:	%release
