@@ -11,7 +11,6 @@ Group: 		Graphical desktop/Enlightenment
 Source:		ftp://ftp.enlightenment.org/pub/enlightenment/%{name}-%{version}.tar.bz2
 Source1:	%name.desktop
 URL:		http://www.enlightenment.org/
-BuildRoot:      %{_tmppath}/%{name}-buildroot
 BuildRequires: 	evas-devel >= 0.9.9.038
 Requires: 	evas >= 0.9.9.038
 Buildrequires:	%{mklibname xorg-x11}-devel
