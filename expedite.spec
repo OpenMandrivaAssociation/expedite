@@ -22,27 +22,19 @@ BuildRequires:  desktop-file-utils
 Expedite Evas benchmark/test suite
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-
 %setup -q
 
 %build
-./autogen.sh
+NOCONFIGURE=1 ./autogen.sh
 %configure2_5x
 %make
 
 %install
+rm -fr %buildroot
 %makeinstall_std
-
-
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
 cp -vf %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applications/
-
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="X-MandrivaLinux-Multimedia-Graphics" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/%name.desktop
 
 mkdir -p %buildroot{%_liconsdir,%_iconsdir,%_miconsdir}
 install -m 644 data/e.png %buildroot%_liconsdir/%name.png
