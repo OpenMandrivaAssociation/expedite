@@ -1,6 +1,6 @@
 %define name expedite
 %define version 0.6.0
-%define release %mkrel 4
+%define release %mkrel 5
 
 Summary:	Expedite Evas benchmark/test suite
 Name:		%name
