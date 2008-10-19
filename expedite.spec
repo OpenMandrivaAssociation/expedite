@@ -1,6 +1,6 @@
 %define name expedite
 %define version 0.6.0
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary:	Expedite Evas benchmark/test suite
 Name:		%name
@@ -13,8 +13,8 @@ Source1:	%name.desktop
 URL:		http://www.enlightenment.org/
 BuildRoot:      %{_tmppath}/%{name}-buildroot
 BuildRequires: 	evas-devel >= 0.9.9.042
-Requires: 	evas >= 0.9.9.042
-Buildrequires:	%{mklibname xorg-x11}-devel
+BuildRequires:	libx11-devel
+BuildRequires:	libxext-devel
 BuildRequires:  ImageMagick
 BuildRequires:  desktop-file-utils
 
