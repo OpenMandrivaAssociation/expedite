@@ -15,7 +15,7 @@ BuildRoot:      %{_tmppath}/%{name}-buildroot
 BuildRequires: 	evas-devel >= 0.9.9.042
 BuildRequires:	libx11-devel
 BuildRequires:	libxext-devel
-BuildRequires:  ImageMagick
+BuildRequires:  imagemagick
 BuildRequires:  desktop-file-utils
 
 %description
