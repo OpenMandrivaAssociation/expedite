@@ -62,6 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc  AUTHORS COPYING* README
 %{_bindir}/%name
+%{_bindir}/expedite-cmp
 %{_datadir}/%name
 %_liconsdir/*.png
 %_iconsdir/*.png
