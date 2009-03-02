@@ -1,6 +1,6 @@
 %define name expedite
 %define version 0.6.0
-%define release %mkrel 6
+%define release %mkrel 7
 
 Summary:	Expedite Evas benchmark/test suite
 Name:		%name
@@ -12,7 +12,7 @@ Source:		ftp://ftp.enlightenment.org/pub/enlightenment/%{name}-%{version}.tar.bz
 Source1:	%name.desktop
 URL:		http://www.enlightenment.org/
 BuildRoot:      %{_tmppath}/%{name}-buildroot
-BuildRequires: 	evas-devel >= 0.9.9.042
+BuildRequires: 	evas-devel >= 0.9.9.050
 BuildRequires:	libx11-devel
 BuildRequires:	libxext-devel
 BuildRequires:  imagemagick
