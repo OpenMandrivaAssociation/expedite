@@ -14,6 +14,7 @@ Source1:	%name.desktop
 URL:		http://www.enlightenment.org/
 BuildRoot:      %{_tmppath}/%{name}-buildroot
 BuildRequires: 	evas-devel >= 0.9.9.060
+BuildRequires:	xcb-util-devel
 BuildRequires:	libx11-devel
 BuildRequires:	libxext-devel
 BuildRequires:  imagemagick
