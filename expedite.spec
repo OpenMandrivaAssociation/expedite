@@ -1,7 +1,7 @@
 %define name expedite
 %define version 0.6.0
 %define svnrel 20090503
-%define release %mkrel 8.%{svnrel}.1
+%define release %mkrel 8.%{svnrel}.2
 
 Summary:	Expedite Evas benchmark/test suite
 Name:		%name
