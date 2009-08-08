@@ -1,7 +1,7 @@
 %define name expedite
 %define version 0.6.0
-%define svnrel 20090503
-%define release %mkrel 8.%{svnrel}.2
+%define svnrel 20090808
+%define release %mkrel 8.%{svnrel}.1
 
 Summary:	Expedite Evas benchmark/test suite
 Name:		%name
@@ -15,6 +15,7 @@ URL:		http://www.enlightenment.org/
 BuildRoot:      %{_tmppath}/%{name}-buildroot
 BuildRequires: 	evas-devel >= 0.9.9.060
 BuildRequires:	xcb-util-devel
+BuildRequires:	SDL-devel
 BuildRequires:	libx11-devel
 BuildRequires:	libxext-devel
 BuildRequires:  imagemagick
