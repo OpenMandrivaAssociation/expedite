@@ -18,6 +18,7 @@ BuildRequires:	xcb-util-devel
 BuildRequires:	SDL-devel
 BuildRequires:	libx11-devel
 BuildRequires:	libxext-devel
+BuildRequires:	libxrender-devel
 BuildRequires:  imagemagick
 BuildRequires:  desktop-file-utils
 
