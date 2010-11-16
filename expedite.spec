@@ -1,15 +1,13 @@
 %define name expedite
-%define version 0.7.0
-%define svnrel 20100523
-%define release %mkrel 0.%{svnrel}.1
+%define version 0.7.1
 
 Summary:	Expedite Evas benchmark/test suite
 Name:		%name
 Version:	%version
-Release:	%release
+Release:	%mkrel 1
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
-Source:		ftp://ftp.enlightenment.org/pub/enlightenment/%{name}-%{version}.tar.bz2
+Source:		http://download.enlightenment.org/snapshots/LATEST/%{name}-%{version}.tar.bz2
 Source1:	%name.desktop
 URL:		http://www.enlightenment.org/
 BuildRoot:      %{_tmppath}/%{name}-buildroot
@@ -29,7 +27,6 @@ Expedite Evas benchmark/test suite
 %setup -qn %{name}-%{version}
 
 %build
-NOCONFIGURE=1 ./autogen.sh
 %configure2_5x
 %make
 
