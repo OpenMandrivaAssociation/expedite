@@ -1,5 +1,5 @@
 %define name expedite
-%define version 0.7.1
+%define version 0.7.2
 
 Summary:	Expedite Evas benchmark/test suite
 Name:		%name
@@ -44,7 +44,6 @@ convert -resize 16x16 data/e.png %buildroot%_miconsdir/%name.png
 
 mkdir -p %buildroot%{_datadir}/pixmaps
 cp data/e.png %buildroot%{_datadir}/pixmaps/%name.png
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
