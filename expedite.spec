@@ -14,9 +14,9 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	imagemagick
 BuildRequires:	pkgconfig(evas)
 BuildRequires:	pkgconfig(glew)
-BuildRequires:	pkgconfig(libdirectfb)
+BuildRequires:	pkgconfig(directfb)
 BuildRequires:	pkgconfig(libgdiplus)
-BuildRequires:	pkgconfig(libxine)
+BuildRequires:	pkgconfig(libxine) < 1.1.90
 BuildRequires:	pkgconfig(sdl)
 BuildRequires:	pkgconfig(xcb-util)
 
