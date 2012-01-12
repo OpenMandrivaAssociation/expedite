@@ -1,72 +1,61 @@
-%define name expedite
-%define version 0.7.2
+%define svnrev 66195
 
 Summary:	Expedite Evas benchmark/test suite
-Name:		%name
-Version:	%version
-Release:	%mkrel 1
+Name:		expedite
+Version:	1.1.1
+Release:	0.%{svnrev}.1
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
-Source:		http://download.enlightenment.org/snapshots/LATEST/%{name}-%{version}.tar.bz2
-Source1:	%name.desktop
 URL:		http://www.enlightenment.org/
-BuildRoot:      %{_tmppath}/%{name}-buildroot
-BuildRequires: 	evas-devel >= 0.9.9.063
-BuildRequires:	xcb-util-devel
-BuildRequires:	SDL-devel
-BuildRequires:	libx11-devel
-BuildRequires:	libxext-devel
-BuildRequires:	libxrender-devel
-BuildRequires:  imagemagick
-BuildRequires:  desktop-file-utils
+Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/%{name}-%{version}.%{svnrev}.tar.xz
+Source1:	%{name}.desktop
+
+BuildRequires:	desktop-file-utils
+BuildRequires:	imagemagick
+BuildRequires:	pkgconfig(evas)
+BuildRequires:	pkgconfig(glew)
+BuildRequires:	pkgconfig(libdirectfb)
+BuildRequires:	pkgconfig(libgdiplus)
+BuildRequires:	pkgconfig(libxine)
+BuildRequires:	pkgconfig(sdl)
+BuildRequires:	pkgconfig(xcb-util)
 
 %description
 Expedite Evas benchmark/test suite
 
 %prep
-%setup -qn %{name}-%{version}
+%setup -qn %{name}
 
 %build
-%configure2_5x
+NOCONFIGURE=1 ./autogen.sh
+%configure2_5x \
+	--enable-directfb \
+
 %make
 
 %install
-rm -fr %buildroot
+rm -fr %{buildroot}
 %makeinstall_std
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
-cp -vf %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applications/
+mkdir -p %{buildroot}%{_datadir}/applications/
+cp -vf %{SOURCE1} %{buildroot}%{_datadir}/applications/
 
-mkdir -p %buildroot{%_liconsdir,%_iconsdir,%_miconsdir}
-install -m 644 data/e.png %buildroot%_liconsdir/%name.png
-convert -resize 32x32 data/e.png %buildroot%_iconsdir/%name.png
-convert -resize 16x16 data/e.png %buildroot%_miconsdir/%name.png
+mkdir -p %{buildroot}{%{_liconsdir},%{_iconsdir},%{_miconsdir}}
+install -m 644 data/e.png %{buildroot}%{_liconsdir}/%{name}.png
+convert -resize 32x32 data/e.png %{buildroot}%{_iconsdir}/%{name}.png
+convert -resize 16x16 data/e.png %{buildroot}%{_miconsdir}/%{name}.png
 
-mkdir -p %buildroot%{_datadir}/pixmaps
-cp data/e.png %buildroot%{_datadir}/pixmaps/%name.png
-
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post 
-%{update_menus} 
-%endif
-
-%if %mdkversion < 200900
-%postun 
-%{clean_menus} 
-%endif
+mkdir -p %{buildroot}%{_datadir}/pixmaps
+cp data/e.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 %files
-%defattr(-,root,root)
 %doc  AUTHORS COPYING* README
-%{_bindir}/%name
+%{_bindir}/%{name}
 %{_bindir}/expedite-cmp
-%{_datadir}/%name
-%_liconsdir/*.png
-%_iconsdir/*.png
-%_miconsdir/*.png
-%_datadir/pixmaps/*.png
+%{_datadir}/%{name}
+%{_liconsdir}/*.png
+%{_iconsdir}/*.png
+%{_miconsdir}/*.png
+%{_datadir}/pixmaps/*.png
 %{_datadir}/applications/*
 
