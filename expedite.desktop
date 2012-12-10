@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Expedite
+GenericName=Expedite
+Categories=GTK;Graphics;Viewer;RasterGraphics;2DGraphics;Photography;
+Exec=expedite -e x11
+Icon=expedite
+StartupNotify=true
+Terminal=false
+Type=Application

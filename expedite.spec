@@ -1,40 +1,40 @@
-%define svnrev 66195
-
 Summary:	Expedite Evas benchmark/test suite
 Name:		expedite
-Version:	1.1.1
-Release:	0.%{svnrev}.1
+Version:	1.7.3
+Release:	1
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 URL:		http://www.enlightenment.org/
-Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/%{name}-%{version}.%{svnrev}.tar.xz
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	imagemagick
 BuildRequires:	pkgconfig(evas)
+BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glew)
 BuildRequires:	pkgconfig(directfb)
 BuildRequires:	pkgconfig(libgdiplus)
-BuildRequires:	pkgconfig(libxine) < 1.1.90
+BuildRequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(sdl)
 BuildRequires:	pkgconfig(xcb-util)
 
 %description
-Expedite Evas benchmark/test suite
+Expedite Evas benchmark/test suite.
 
 %prep
-%setup -qn %{name}
+%setup -q
 
 %build
-NOCONFIGURE=1 ./autogen.sh
+#NOCONFIGURE=1 ./autogen.sh
 %configure2_5x \
 	--enable-directfb \
+	--enable-opengl-sdl
 
 %make
 
 %install
-rm -fr %{buildroot}
 %makeinstall_std
 
 mkdir -p %{buildroot}%{_datadir}/applications/
@@ -58,4 +58,3 @@ cp data/e.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
 %{_miconsdir}/*.png
 %{_datadir}/pixmaps/*.png
 %{_datadir}/applications/*
-
