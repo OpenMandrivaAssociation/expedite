@@ -1,7 +1,7 @@
 Summary:	Expedite Evas benchmark/test suite
 Name:		expedite
 Version:	1.7.7
-Release:	1
+Release:	2
 License: 	BSD
 Group: 		Graphical desktop/Enlightenment
 URL:		http://www.enlightenment.org/
