@@ -1,6 +1,6 @@
 Summary:	Expedite Evas benchmark/test suite
 Name:		expedite
-Version:	1.7.8
+Version:	1.7.9
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
@@ -9,6 +9,8 @@ Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 
 BuildRequires:	desktop-file-utils
+BuildRequires:	pkgconfig(eet)
+BuildRequires:	pkgconfig(eina)
 BuildRequires:	pkgconfig(evas)
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
@@ -21,6 +23,16 @@ BuildRequires:	pkgconfig(xcb-util)
 
 %description
 Expedite Evas benchmark/test suite.
+
+%files
+%doc  AUTHORS COPYING* README
+%{_bindir}/%{name}
+%{_bindir}/expedite-cmp
+%{_datadir}/%{name}
+%{_datadir}/pixmaps/*.png
+%{_datadir}/applications/*
+
+#----------------------------------------------------------------------------
 
 %prep
 %setup -q
@@ -40,12 +52,4 @@ cp -vf %{SOURCE1} %{buildroot}%{_datadir}/applications/
 
 mkdir -p %{buildroot}%{_datadir}/pixmaps
 cp data/e.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
-
-%files
-%doc  AUTHORS COPYING* README
-%{_bindir}/%{name}
-%{_bindir}/expedite-cmp
-%{_datadir}/%{name}
-%{_datadir}/pixmaps/*.png
-%{_datadir}/applications/*
 
