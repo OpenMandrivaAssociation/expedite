@@ -1,11 +1,11 @@
 Summary:	Expedite Evas benchmark/test suite
 Name:		expedite
 Version:	1.7.9
-Release:	2
+Release:	3
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 
 BuildRequires:	desktop-file-utils
@@ -15,7 +15,6 @@ BuildRequires:	pkgconfig(evas)
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glew)
-BuildRequires:	pkgconfig(directfb)
 BuildRequires:	pkgconfig(libgdiplus)
 BuildRequires:	pkgconfig(libxine)
 BuildRequires:	pkgconfig(sdl)
@@ -38,8 +37,9 @@ Expedite Evas benchmark/test suite.
 %setup -q
 
 %build
+# clang did not work :\
+export CC=gcc CXX=g++
 %configure2_5x \
-	--enable-directfb \
 	--enable-opengl-sdl
 
 %make
