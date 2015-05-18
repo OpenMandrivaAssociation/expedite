@@ -5,7 +5,7 @@ Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.xz
 Source1:	%{name}.desktop
 
 BuildRequires:	desktop-file-utils
@@ -37,10 +37,10 @@ Expedite Evas benchmark/test suite.
 %setup -q
 
 %build
-# clang did not work :\
-export CC=gcc CXX=g++
+
+./autogen.sh
 %configure2_5x \
-	--disable-opengl-sdl
+	--enable-opengl-sdl
 
 %make
 

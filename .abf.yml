@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   expedite-1.7.9.tar.bz2: caa72df99d1fb8cafc62cfb86eec67e17fcbb61d
+sources:
+  expedite-1.7.10.tar.xz: 01ddaf0977016b06ff3769eb75b78c4c56864537
