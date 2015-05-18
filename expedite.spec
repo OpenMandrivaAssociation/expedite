@@ -1,7 +1,7 @@
 Summary:	Expedite Evas benchmark/test suite
 Name:		expedite
-Version:	1.7.9
-Release:	4
+Version:	1.7.10
+Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
@@ -40,7 +40,7 @@ Expedite Evas benchmark/test suite.
 # clang did not work :\
 export CC=gcc CXX=g++
 %configure2_5x \
-	--enable-opengl-sdl
+	--disable-opengl-sdl
 
 %make
 
