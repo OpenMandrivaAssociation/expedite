@@ -1,11 +1,11 @@
 Summary:	Expedite Evas benchmark/test suite
 Name:		expedite
-Version:	1.7.8
-Release:	1
+Version:	1.7.10
+Release:	.1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.xz
 Source1:	%{name}.desktop
 
 BuildRequires:	desktop-file-utils
@@ -23,9 +23,10 @@ BuildRequires:	pkgconfig(xcb-util)
 Expedite Evas benchmark/test suite.
 
 %prep
-%setup -q
+%setup -q %{name}-%{version}
 
 %build
+./autogen.sh
 %configure2_5x \
 	--enable-directfb \
 	--enable-opengl-sdl
