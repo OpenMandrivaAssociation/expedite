@@ -11,7 +11,7 @@ Source1:	%{name}.desktop
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(evas)
 BuildRequires:	pkgconfig(ecore)
-BuildRequires:	pkgconfig(ecore-evas
+BuildRequires:	pkgconfig(ecore-evas)
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(glew)
