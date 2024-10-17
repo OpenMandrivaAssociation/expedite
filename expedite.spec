@@ -4,7 +4,7 @@ Version:	1.7.10
 Release:	1
 License:	BSD
 Group:		Graphical desktop/Enlightenment
-Url:		http://www.enlightenment.org/
+Url:		https://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.xz
 Source1:	%{name}.desktop
 
