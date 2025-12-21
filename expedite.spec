@@ -8,6 +8,11 @@ Url:		https://www.enlightenment.org/
 Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.xz
 Source1:	%{name}.desktop
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(eet)
 BuildRequires:	pkgconfig(eina)
